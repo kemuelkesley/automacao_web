@@ -17,9 +17,7 @@ class Task:
             self.user = str(input("Digite o usuário: "))            
         except ValueError:
             print("Erro ao digitar os dados")
-
-        
-    
+       
 
     def user_password(self):
         self.password = str(input("Digite a senha: "))

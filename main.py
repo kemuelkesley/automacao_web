@@ -3,7 +3,6 @@ from task import Task
 # instanciar a classe
 task_web = Task()
 
-
 input_user = task_web.user_data()
 input_password = task_web.user_password()
 
