@@ -6,21 +6,40 @@ import pandas as pd
 # Orientado a objetos
 
 class Task:
-    def __init__(self):
-        pyautogui.PAUSE = 1.5
-        webbrowser.open("chrome")
-        time.sleep(3)
+    def __init__(self):        
+        pyautogui.PAUSE = 1.5   
+        self.user = None
+        self.password = None
+   
 
-    def open_link(self, link):
+    def user_data(self):
+        try:
+            self.user = str(input("Digite o usuário: "))            
+        except ValueError:
+            print("Erro ao digitar os dados")
+
+        
+    
+
+    def user_password(self):
+        self.password = str(input("Digite a senha: "))
+       
+
+    def open_browser(self):
+        webbrowser.open("chrome")
+
+
+    def open_link(self, link):  
+        time.sleep(5)      
         pyautogui.write(link)
         pyautogui.press("enter")    
 
 
-    def make_login(self):
+    def make_login(self):        
         pyautogui.click(x=887, y=395)
-        pyautogui.write("administrador")
+        pyautogui.write(str(self.user))
         pyautogui.press("tab")
-        pyautogui.write("bandal")
+        pyautogui.write(str(self.password))
         pyautogui.press("tab")       
         pyautogui.press("enter")
         pyautogui.click(x=402, y=231)

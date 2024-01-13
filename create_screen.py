@@ -1,7 +1,5 @@
 import customtkinter
 
-def button_callback():
-    print("dados enviados")
 
 app = customtkinter.CTk()
 app.title("My automation")
@@ -9,6 +7,13 @@ app.geometry("400x250")
 # app.maxsize(width=400, height=250)
 # app.minsize(width=400, height=250)
 app.resizable(width=False, height=False)
+
+
+def button_callback():    
+    print("dados enviados")
+    user = entry_user.get()
+    password = entry_password.get()
+    print(f"Usuário:{user} Senha:{password}")
 
 
 
@@ -20,10 +25,9 @@ title_label.grid(row=0, column=1, columnspan=2, pady=10)
 label_user = customtkinter.CTkLabel(app, text="User:", fg_color="transparent", font=("Arial", 15))
 label_user.grid(row=1, column=0, sticky="w", ipadx=10, ipady=10)
 
+
 entry_user = customtkinter.CTkEntry(app, placeholder_text="Informe o usuário", width=250, height=30)
 entry_user.grid(row=1, column=1, padx=10, pady=10)
-entry_user_value = entry_user.get()
-print(entry_user_value)
 
 
 # Rótulo e Entrada para a Senha
@@ -34,9 +38,9 @@ entry_password = customtkinter.CTkEntry(app, placeholder_text="Informe a Senha",
 entry_password.grid(row=2, column=1, padx=10, pady=10, sticky="w")
 
 # Botão de Envio
-button = customtkinter.CTkButton(app, text="Enviar", command=button_callback, width=250, height=30)
+button = customtkinter.CTkButton(app, text="Enviar", command=lambda: button_callback(), width=250, height=30)
 button.grid(row=3, column=1, padx=10, pady=10)
 
 
-
+# Deixar a janela em loop
 app.mainloop()
